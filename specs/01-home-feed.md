@@ -1,6 +1,6 @@
 # SPEC 01 — Home feed con identidad visual OpenDayCare
 
-> **Status:** Aprobado
+> **Status:** Implementado
 > **Depends on:** ninguna
 > **Date:** 2026-10-09
 > **Objective:** Implementar la plantilla `referencias/pantallas/feed.dc.html` como home `/` con datos estáticos y estilo visualmente idéntico al proporcionado.
@@ -70,16 +70,16 @@ Colores de badge por `kind` fijados en `post-card.tsx`: achievement `#CFEBD8/#3E
 
 ## Acceptance criteria
 
-- [ ] `/` muestra sidebar, header de saludo, composer, separador "PUBLICADO HOY" y 3 posts en el mismo orden y estructura que `feed.dc.html`.
-- [ ] Fondos, superficies, bordes y textos usan la paleta de la plantilla (`#F6ECDF`, `#FFFDF9`, `#ECE0D0`, `#3F362E`).
-- [ ] Nunito es la fuente de texto y Fredoka la de títulos/logo, cargadas vía `next/font/google` (sin `<link>` a Google en el HTML).
-- [ ] Los badges LOGRO (verde), ACTIVIDAD (celeste) y ANUNCIO (lila) aparecen con punto, mayúsculas y colores de la plantilla.
-- [ ] Los identificadores de código (`PostKind`, campos, componentes, variables) están en inglés; los textos visibles mantienen el español exacto de la plantilla.
-- [ ] El post de actividad muestra el placeholder punteado con ícono y etiqueta; el anuncio muestra avatar con megáfono en vez de inicial.
-- [ ] Ningún link navega a un 404: todos los destinos inexistentes son `href="#"`.
-- [ ] No quedan referencias a Geist, al scaffold de create-next-app ni a dark mode en `app/`.
-- [ ] `npm run lint`, `npx tsc --noEmit` y `npm run build` terminan sin errores.
-- [ ] La revisión visual manual de `/` en viewport desktop (≥1024px) contra `referencias/screenshots/feed.png` no muestra diferencias apreciables.
+- [x] `/` muestra sidebar, header de saludo, composer, separador "PUBLICADO HOY" y 3 posts en el mismo orden y estructura que `feed.dc.html`.
+- [x] Fondos, superficies, bordes y textos usan la paleta de la plantilla (`#F6ECDF`, `#FFFDF9`, `#ECE0D0`, `#3F362E`).
+- [x] Nunito es la fuente de texto y Fredoka la de títulos/logo, cargadas vía `next/font/google` (sin `<link>` a Google en el HTML).
+- [x] Los badges LOGRO (verde), ACTIVIDAD (celeste) y ANUNCIO (lila) aparecen con punto, mayúsculas y colores de la plantilla.
+- [x] Los identificadores de código (`PostKind`, campos, componentes, variables) están en inglés; los textos visibles mantienen el español exacto de la plantilla.
+- [x] El post de actividad muestra el placeholder punteado con ícono y etiqueta; el anuncio muestra avatar con megáfono en vez de inicial.
+- [x] Ningún link navega a un 404: todos los destinos inexistentes son `href="#"`.
+- [x] No quedan referencias a Geist, al scaffold de create-next-app ni a dark mode en `app/`.
+- [x] `npm run lint`, `npx tsc --noEmit` y `npm run build` terminan sin errores.
+- [x] La revisión visual manual de `/` en viewport desktop (≥1024px) contra `referencias/screenshots/feed.png` no muestra diferencias apreciables.
 
 ## Decisions
 
