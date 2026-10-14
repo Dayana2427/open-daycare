@@ -34,7 +34,9 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## Spec workflow
 
-- `/spec` and `/spec-impl` skills (`.agents/skills/`, tracked by `skills-lock.json`) drive feature work: specs are written to `specs/` (does not exist yet), and `spec-impl` only implements specs marked Approved, on a per-spec git branch. Both are user-invoked only — do not trigger them yourself.
+- `/spec` and `/spec-impl` skills (`.agents/skills/`, tracked by `skills-lock.json`) drive feature work: specs are written to `specs/`, and `spec-impl` only implements specs marked Approved, on a per-spec git branch. Both are user-invoked only — do not trigger them yourself.
+- `spec-verifier` agent (`.opencode/agent/spec-verifier.md`) verifies, fixes and checks off the `## Acceptance criteria` of a spec in `specs/` with real evidence (lint/tsc/build, Context7 + `node_modules/next/dist/docs/`, Playwright screenshots vs `referencias/`). Never marks a check without verifying it in-session, and never edits spec content other than the checkboxes.
+- `/verify-spec` command (`.opencode/command/verify-spec.md`) invokes `spec-verifier` with the spec number, slug, or path as argument, e.g. `/verify-spec 01` or `/verify-spec home-feed`. User-invoked only.
 
 ## Conventions
 
@@ -47,6 +49,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 - /spec usaremos esta habilidad para crera las especificaciones.
 - /spec-impl usaremos esta skill para hacer las implementaciones
+- /verify-spec usaremos este comando para invocar al agente `spec-verifier` y verificar los criterios de aceptación de un spec.
 
 
 ### MCPs
@@ -57,5 +60,3 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 ### Reglas de código
 
 - Usar código limpio, nombres, funciones, variables, etc en inglés.
-
-### 
