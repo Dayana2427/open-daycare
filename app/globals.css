@@ -43,6 +43,10 @@
 }
 
 @layer base {
+  html {
+    line-height: normal;
+  }
+
   body {
     background-color: var(--color-cream);
     color: var(--color-ink);
