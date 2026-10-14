@@ -1,6 +1,6 @@
 # SPEC 01 — Home feed con identidad visual OpenDayCare
 
-> **Status:** Borrador
+> **Status:** Aprobado
 > **Depends on:** ninguna
 > **Date:** 2026-10-09
 > **Objective:** Implementar la plantilla `referencias/pantallas/feed.dc.html` como home `/` con datos estáticos y estilo visualmente idéntico al proporcionado.
