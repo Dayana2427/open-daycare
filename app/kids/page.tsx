@@ -65,7 +65,7 @@ export default function KidsPage() {
           </div>
 
           <div className="mb-[22px] flex items-center gap-[11px] rounded-[14px] border border-border bg-surface px-4 py-3">
-            <span className="flex-none text-[#B0A290]">
+            <span className="flex-none text-photo-ink">
               <SearchIcon />
             </span>
             <input
