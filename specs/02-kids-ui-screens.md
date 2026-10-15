@@ -52,6 +52,7 @@ export interface Kid {
   admittedSince: string;  // "feb 2025"
   allergyTag?: string;    // "MANÍ" | "LACTOSA" (pill en la card)
   allergyNote?: string;   // "Alergia al maní. Evitar frutos secos. Lleva inhalador en la mochila." (alerta del perfil)
+  color: AvatarColor;     // avatar de la card y del perfil (decisión paso 2: "Sí" mantener en Kid)
   parents: KidParent[];   // [] → card muestra pill "VINCULAR"
 }
 
