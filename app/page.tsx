@@ -23,7 +23,7 @@ function CameraIcon() {
 export default function Home() {
   return (
     <div className="flex min-h-screen bg-cream">
-      <Sidebar user={currentUser} />
+      <Sidebar user={currentUser} activeItem="feed" />
 
       <main className="h-screen min-w-0 flex-1 overflow-y-auto">
         <div className="mx-auto w-full max-w-[760px] px-10 pt-[34px] pb-20">
