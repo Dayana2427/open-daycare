@@ -3,6 +3,7 @@ import type { CurrentUser } from "@/lib/data/feed";
 
 interface SidebarProps {
   user: CurrentUser;
+  activeItem: SidebarItemId;
 }
 
 function LogoIcon() {
@@ -128,24 +129,27 @@ function LogoutIcon() {
   );
 }
 
+export type SidebarItemId = "feed" | "kids" | "notices" | "account";
+
 interface NavItem {
+  id: SidebarItemId;
   label: string;
   icon: () => ReactNode;
-  isActive: boolean;
+  href: string;
 }
 
 const navItems: NavItem[] = [
-  { label: "Feed", icon: FeedIcon, isActive: true },
-  { label: "Niños", icon: ChildrenIcon, isActive: false },
-  { label: "Avisos", icon: NoticesIcon, isActive: false },
-  { label: "Mi cuenta", icon: AccountIcon, isActive: false },
+  { id: "feed", label: "Feed", icon: FeedIcon, href: "/" },
+  { id: "kids", label: "Niños", icon: ChildrenIcon, href: "/kids" },
+  { id: "notices", label: "Avisos", icon: NoticesIcon, href: "#" },
+  { id: "account", label: "Mi cuenta", icon: AccountIcon, href: "#" },
 ];
 
 const navItemStyles = "flex items-center gap-3 rounded-xl px-3 py-[11px] text-[14.5px]";
 const navItemActiveStyles = "bg-coral-wash font-extrabold text-coral-strong";
 const navItemIdleStyles = "bg-transparent font-semibold text-nav";
 
-export function Sidebar({ user }: SidebarProps) {
+export function Sidebar({ user, activeItem }: SidebarProps) {
   return (
     <aside className="sticky top-0 flex h-screen w-[248px] flex-none flex-col border-r border-border bg-surface px-4 py-6">
       <a href="#" className="flex items-center gap-[11px] px-2 pt-1 pb-[22px]">
@@ -169,17 +173,20 @@ export function Sidebar({ user }: SidebarProps) {
       </a>
 
       <nav className="flex flex-1 flex-col gap-1">
-        {navItems.map((item) => (
-          <a
-            key={item.label}
-            href="#"
-            aria-current={item.isActive ? "page" : undefined}
-            className={`${navItemStyles} ${item.isActive ? navItemActiveStyles : navItemIdleStyles}`}
-          >
-            <item.icon />
-            {item.label}
-          </a>
-        ))}
+        {navItems.map((item) => {
+          const isActive = item.id === activeItem;
+          return (
+            <a
+              key={item.id}
+              href={item.href}
+              aria-current={isActive ? "page" : undefined}
+              className={`${navItemStyles} ${isActive ? navItemActiveStyles : navItemIdleStyles}`}
+            >
+              <item.icon />
+              {item.label}
+            </a>
+          );
+        })}
       </nav>
 
       <div className="mt-[10px] border-t border-border pt-[14px]">

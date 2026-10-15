@@ -27,9 +27,33 @@
   --color-coral-strong: #d9583c;
   --color-coral-dark: #c5503a;
 
-  /* Child avatar */
+  /* Avatars (kids + parents) */
   --color-avatar-sky: #a9d9e8;
   --color-avatar-sky-ink: #1f7a93;
+  --color-avatar-pink: #f4b8cc;
+  --color-avatar-pink-ink: #c44a7a;
+  --color-avatar-green: #b9dec4;
+  --color-avatar-green-ink: #3e8b62;
+  --color-avatar-yellow: #f4dc8e;
+  --color-avatar-yellow-ink: #9a7b1e;
+  --color-avatar-purple: #c9b6e8;
+  --color-avatar-purple-ink: #7b5fc0;
+
+  /* Kid card pills */
+  --color-pill-allergy: #fbd8cc;
+  --color-pill-allergy-ink: #d9684a;
+  --color-pill-unlinked: #f9d2de;
+  --color-pill-unlinked-ink: #c56486;
+  --color-pill-active: #cfebd8;
+  --color-pill-active-ink: #3e9b6c;
+  --color-pill-pending: #f7e7a6;
+  --color-pill-pending-ink: #9a7b1e;
+
+  /* Allergy alert */
+  --color-alert-bg: #fbdad6;
+  --color-alert-border: #f4a8a0;
+  --color-alert-strong: #c5413a;
+  --color-alert-ink: #b25249;
 
   /* Photo placeholder */
   --color-photo-bg: #f4ece1;
