@@ -1,6 +1,6 @@
 # SPEC 02 — Pantallas Niños y Perfil de niño (solo UI)
 
-> **Status:** Draft
+> **Status:** Aprobado
 > **Depends on:** SPEC 01
 > **Date:** 2026-10-14
 > **Objective:** Implementar las pantallas `ninos.dc.html` y `perfil-nino.dc.html` como rutas `/kids` y `/kids/[id]` con datos estáticos y componentes reutilizables, visualmente idénticas a las referencias.
