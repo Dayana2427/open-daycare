@@ -27,6 +27,19 @@
   --color-coral-strong: #d9583c;
   --color-coral-dark: #c5503a;
 
+  /* Brand gradients (login hero) */
+  --color-brand-grad-start: #f6a98e;
+  --color-brand-grad-end: #ec7e62;
+
+  /* Form inputs */
+  --color-input-border: #eadfd0;
+  --color-placeholder: #b6a99b;
+
+  /* Consent checkbox (activate) */
+  --color-consent-bg: #fbf1d6;
+  --color-consent-ink: #8a7234;
+  --color-consent-check: #5fb97e;
+
   /* Avatars (kids + parents) */
   --color-avatar-sky: #a9d9e8;
   --color-avatar-sky-ink: #1f7a93;
