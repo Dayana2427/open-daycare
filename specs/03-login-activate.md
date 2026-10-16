@@ -1,6 +1,6 @@
 # SPEC 03 — Pantallas Login y Activar cuenta (solo UI)
 
-> **Status:** Aprobado
+> **Status:** Implementado
 > **Depends on:** SPEC 01
 > **Date:** 2026-10-16
 > **Objective:** Implementar `login.dc.html` y `activar-cuenta.dc.html` como rutas estáticas `/login` y `/activate`, sin el selector de rol del login y visualmente idénticas a las referencias.
@@ -54,16 +54,16 @@ export const invite: Invite; // único mock, valores exactos de activar-cuenta.d
 
 ## Acceptance criteria
 
-- [ ] `/login` muestra el hero con gradiente `#F6A98E→#F2937A→#EC7E62`, logo, H1, subtítulo y "🌿 Guardería Sala Soles", y a la derecha el formulario con email + contraseña con placeholder vacío.
-- [ ] `/login` no contiene la sección "INGRESO COMO" ni botones Personal/Familia.
-- [ ] "¿Olvidaste tu contraseña?" y "Iniciar sesión" (CTA) son `href="#"`; "Activá tu cuenta" navega a `/activate`.
-- [ ] `/activate` muestra avatar "M" celeste, "Mateo · Sala Soles", código `7K4P9`, email `lucia.fernandez@gmail.com`, contraseña con borde `#F2A78E`, checkbox verde checked con texto de autorización en `#FBF1D6`, y "Iniciar sesión" navega a `/login`.
-- [ ] Los valores de `/activate` provienen de `lib/data/activation.ts`; ningún string de la invitación está hardcodeado en el JSX.
-- [ ] Ambas páginas son server components sin `"use client"`; ningún input tiene lógica.
-- [ ] Nunito/Fredoka y paleta cream aplicadas vía tokens `@theme`; sin `<link>` a Google Fonts.
-- [ ] Identificadores en inglés (`Invite`, `code`, `childName`); textos visibles idénticos en español a las plantillas.
-- [ ] `npm run lint`, `npx tsc --noEmit` y `npm run build` terminan sin errores.
-- [ ] Revisión visual desktop (≥1024px) de `/login` y `/activate` contra sus `.dc.html` sin diferencias apreciables.
+- [x] `/login` muestra el hero con gradiente `#F6A98E→#F2937A→#EC7E62`, logo, H1, subtítulo y "🌿 Guardería Sala Soles", y a la derecha el formulario con email + contraseña con placeholder vacío.
+- [x] `/login` no contiene la sección "INGRESO COMO" ni botones Personal/Familia.
+- [x] "¿Olvidaste tu contraseña?" y "Iniciar sesión" (CTA) son `href="#"`; "Activá tu cuenta" navega a `/activate`.
+- [x] `/activate` muestra avatar "M" celeste, "Mateo · Sala Soles", código `7K4P9`, email `lucia.fernandez@gmail.com`, contraseña con borde `#F2A78E`, checkbox verde checked con texto de autorización en `#FBF1D6`, y "Iniciar sesión" navega a `/login`.
+- [x] Los valores de `/activate` provienen de `lib/data/activation.ts`; ningún string de la invitación está hardcodeado en el JSX.
+- [x] Ambas páginas son server components sin `"use client"`; ningún input tiene lógica.
+- [x] Nunito/Fredoka y paleta cream aplicadas vía tokens `@theme`; sin `<link>` a Google Fonts.
+- [x] Identificadores en inglés (`Invite`, `code`, `childName`); textos visibles idénticos en español a las plantillas.
+- [x] `npm run lint`, `npx tsc --noEmit` y `npm run build` terminan sin errores.
+- [x] Revisión visual desktop (≥1024px) de `/login` y `/activate` contra sus `.dc.html` sin diferencias apreciables.
 
 ## Decisions
 

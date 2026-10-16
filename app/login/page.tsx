@@ -4,7 +4,8 @@ export default function LoginPage() {
       {/* Hero panel */}
       <div className="relative overflow-hidden flex flex-col justify-between py-14 px-15 text-white"
         style={{
-          background: "linear-gradient(155deg, var(--color-brand-grad-start) 0%, var(--color-coral-soft) 45%, var(--color-brand-grad-end) 100%)",
+          backgroundColor: "#F2937A",
+          background: "linear-gradient(155deg, #F6A98E 0%, #F2937A 45%, #EC7E62 100%)",
         }}
       >
         {/* Decorative circles */}
