@@ -84,7 +84,7 @@ export const invite: Invite; // único mock, valores exactos de activar-cuenta.d
 | `login.dc.html` y `activar-cuenta.dc.html` no tienen screenshot en `referencias/screenshots/` | Verificación abriendo cada HTML de referencia en el navegador junto a la ruta, con captura en `.playwright-mcp/` (igual que SPEC 02) |
 | Gradientes y círculos decorativos del hero difieren al pasar de inline styles a Tailwind | Usar arbitrary values exactos (`bg-gradient-to-br`, `rounded-full`, tamaños/offsets literales de la plantilla) y comparar visualmente |
 
-## What is **not** in this spec
+## What is **not** in this spec. 
 
 - Autenticación, sesión, logout funcional.
 - Selector de rol y destinos post-login.
