@@ -56,7 +56,7 @@ export default function KidsPage() {
               </h1>
             </div>
             <Link
-              href="#"
+              href="/kids/new"
               className="flex flex-none items-center gap-2 rounded-[14px] bg-[linear-gradient(180deg,var(--color-coral-light),var(--color-coral))] px-[18px] py-[11px] text-[14.5px] font-extrabold text-white shadow-[0_8px_18px_-8px_rgba(238,129,100,.7)]"
             >
               <PlusIcon />
