@@ -11,7 +11,7 @@
 
 - `app/kids/new/page.tsx` nuevo: pantalla completa cream con una card centrada (`max-w` 520px, fondo `#FBF4EC`, borde `#ECE0D0`, radio 24px, sombra) — sin `Sidebar`, fiel a la referencia.
 - Header de la card: link "Cancelar" a la izquierda (en `--color-muted-dark`), título "Agregar niño" al centro (Fredoka 600, 18px) y link "Guardar" a la derecha (en `--color-coral-strong`); ambos links navegan a `/kids`.
-- Cuerpo del formulario con 5 campos vacíos, sin `defaultValue` y sin handlers: NOMBRE COMPLETO (`placeholder="Ej. Martina López"`), fila de dos columnas con FECHA DE NACIMIENTO (`placeholder="dd/mm/aaaa"`) y SALA (`<select>` nativo con `appearance-none`, única opción "Soles" y chevron SVG), ALERGIAS (ETIQUETAS) (`placeholder="Ej. Maní, Lactosa"`) y NOTAS MÉDICAS (`<textarea>` de min-height 90px con `placeholder="Indicaciones, medicación, contactos…"`).
+- Cuerpo del formulario con 5 campos vacíos, sin `defaultValue` y sin handlers: NOMBRE COMPLETO (`placeholder="Ej. Martina López"`), fila de dos columnas con FECHA DE NACIMIENTO (`placeholder="aaaa-mm-dd"`) y SALA (`<select>` nativo con `appearance-none`, única opción "Soles" y chevron SVG), ALERGIAS (ETIQUETAS) (`placeholder="Ej. Maní, Lactosa"`) y NOTAS MÉDICAS (`<textarea>` de min-height 90px con `placeholder="Indicaciones, medicación, contactos…"`).
 - `app/globals.css`: token nuevo `--color-card: #fbf4ec` en `@theme`; el resto de colores de la pantalla ya existen (`cream`, `border`, `ink`, `muted-dark`, `coral-strong`, `input-border`, `placeholder`, `photo-ink`).
 - Cambio en `app/kids/page.tsx`: el botón "Agregar niño" pasa de `href="#"` a `href="/kids/new"`.
 
@@ -40,17 +40,17 @@ Esta feature no introduce nuevas estructuras de datos. No hay mock: los cinco ca
 
 ## Acceptance criteria
 
-- [ ] `/kids/new` renderiza una card centrada de `max-w` 520px con fondo `#FBF4EC`, borde `#ECE0D0`, radio 24px y sombra `0 20px 50px -24px rgba(63,54,46,.35)` sobre fondo cream, sin `Sidebar`.
-- [ ] El header de la card muestra "Cancelar" en `#94887B` (izquierda), "Agregar niño" en Fredoka 600 18px (centro) y "Guardar" en `#D9583C` (derecha).
-- [ ] "Cancelar" y "Guardar" navegan a `/kids`.
-- [ ] El formulario contiene NOMBRE COMPLETO (placeholder "Ej. Martina López"), FECHA DE NACIMIENTO (placeholder "dd/mm/aaaa"), SALA con `select` de única opción "Soles" y chevron, ALERGIAS (ETIQUETAS) (placeholder "Ej. Maní, Lactosa") y NOTAS MÉDICAS (textarea min-h 90px, placeholder "Indicaciones, medicación, contactos…").
-- [ ] Los 5 campos están vacíos por defecto (sin `defaultValue`) y ninguno tiene handler, estado ni lógica de validación.
-- [ ] `app/kids/new/page.tsx` es server component sin `"use client"` (el `<select>` no tiene `onChange`).
-- [ ] El botón "Agregar niño" de `/kids` navega a `/kids/new` y el resto de la pantalla `/kids` no cambia visualmente.
-- [ ] Identificadores de código en inglés; todos los textos visibles en español idénticos a la plantilla.
-- [ ] Los colores se resuelven con tokens `@theme` existentes más el token nuevo `--color-card`; no hay hex huérfanos repetidos en el componente.
-- [ ] `npm run lint`, `npx tsc --noEmit` y `npm run build` terminan sin errores.
-- [ ] La revisión visual desktop (≥1024px) de `/kids/new` contra `referencias/pantallas/agregar-nino.dc.html` no muestra diferencias apreciables.
+- [x] `/kids/new` renderiza una card centrada de `max-w` 520px con fondo `#FBF4EC`, borde `#ECE0D0`, radio 24px y sombra `0 20px 50px -24px rgba(63,54,46,.35)` sobre fondo cream, sin `Sidebar`.
+- [x] El header de la card muestra "Cancelar" en `#94887B` (izquierda), "Agregar niño" en Fredoka 600 18px (centro) y "Guardar" en `#D9583C` (derecha).
+- [x] "Cancelar" y "Guardar" navegan a `/kids`.
+- [x] El formulario contiene NOMBRE COMPLETO (placeholder "Ej. Martina López"), FECHA DE NACIMIENTO (placeholder "aaaa-mm-dd"), SALA con `select` de única opción "Soles" y chevron, ALERGIAS (ETIQUETAS) (placeholder "Ej. Maní, Lactosa") y NOTAS MÉDICAS (textarea min-h 90px, placeholder "Indicaciones, medicación, contactos…").
+- [x] Los 5 campos están vacíos por defecto (sin `defaultValue`) y ninguno tiene handler, estado ni lógica de validación.
+- [x] `app/kids/new/page.tsx` es server component sin `"use client"` (el `<select>` no tiene `onChange`).
+- [x] El botón "Agregar niño" de `/kids` navega a `/kids/new` y el resto de la pantalla `/kids` no cambia visualmente.
+- [x] Identificadores de código en inglés; todos los textos visibles en español idénticos a la plantilla.
+- [x] Los colores se resuelven con tokens `@theme` existentes más el token nuevo `--color-card`; no hay hex huérfanos repetidos en el componente.
+- [x] `npm run lint`, `npx tsc --noEmit` y `npm run build` terminan sin errores.
+- [x] La revisión visual desktop (≥1024px) de `/kids/new` contra `referencias/pantallas/agregar-nino.dc.html` no muestra diferencias apreciables, salvo el placeholder de FECHA DE NACIMIENTO (`aaaa-mm-dd` por decisión registrada en *Decisions*).
 
 ## Decisions
 
@@ -65,6 +65,7 @@ Esta feature no introduce nuevas estructuras de datos. No hay mock: los cinco ca
 - **Sí:** token `--color-card: #fbf4ec` en `@theme`; sigue la convención de SPEC 02/03 de centralizar hex en tokens (el de la card se repite en borde, header y cuerpo).
 - **No:** componente reutilizable nuevo; es una sola pantalla y no hay segunda aparición del patrón de form card.
 - **Sí:** actualizar el botón "Agregar niño" de `/kids` a `/kids/new`; sin esto la pantalla es inalcanzable por UI (decisión del usuario).
+- **Sí:** FECHA DE NACIMIENTO con placeholder `aaaa-mm-dd` (ISO 8601) en lugar del `dd/mm/aaaa` de la plantilla; formato inequívoco de parseo (decisión del usuario). Desviación visual deliberada y acotada respecto de la referencia.
 
 ## Risks
 

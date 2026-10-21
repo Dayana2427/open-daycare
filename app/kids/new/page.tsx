@@ -30,7 +30,7 @@ export default function NewKidPage() {
                 FECHA DE NACIMIENTO
               </div>
               <input
-                placeholder="dd/mm/aaaa"
+                placeholder="aaaa-mm-dd"
                 className="w-full rounded-[14px] border-[1.5px] border-input-border bg-white px-4 py-[13px] text-[15px] text-ink placeholder:text-placeholder"
               />
             </div>
