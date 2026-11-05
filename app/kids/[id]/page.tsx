@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Sidebar } from "@/components/sidebar";
+import { LinkParentModal } from "@/components/link-parent-modal";
 import { currentUser } from "@/lib/data/feed";
 import { getKidById, kids, type KidParent, type ParentStatus } from "@/lib/data/kids";
 import { avatarBgClasses, avatarInkClasses } from "@/lib/avatar-colors";
@@ -54,23 +55,6 @@ function SunIcon() {
     >
       <circle cx="12" cy="12" r="4" />
       <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
-    </svg>
-  );
-}
-
-function PlusIcon() {
-  return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M12 5v14M5 12h14" />
     </svg>
   );
 }
@@ -209,17 +193,7 @@ export default async function KidProfilePage(props: PageProps<"/kids/[id]">) {
                   {kid.parents.map((parent) => (
                     <ParentRow key={parent.name} parent={parent} />
                   ))}
-                  <Link
-                    href="#"
-                    className="flex items-center gap-3 pt-2"
-                  >
-                    <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full border-[1.5px] border-dashed border-[#D8CBBA] text-photo-ink">
-                      <PlusIcon />
-                    </span>
-                    <span className="text-[14.5px] font-extrabold text-coral-dark">
-                      Vincular otro padre
-                    </span>
-                  </Link>
+                  <LinkParentModal childName={kid.name} />
                 </div>
               </div>
             </div>
