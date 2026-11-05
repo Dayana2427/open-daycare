@@ -10,8 +10,8 @@
     "external_directory": {
       "/tmp/**": "allow"
     },
-  "bash": "allow"
-}
+    "bash": "allow"
+  },
   "mcp": {
     "playwright": {
       "type": "local",
