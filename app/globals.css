@@ -41,6 +41,15 @@
   --color-consent-ink: #8a7234;
   --color-consent-check: #5fb97e;
 
+  /* Link parent modal */
+  --color-info-bg: #e3ecfb;
+  --color-info-accent: #4e72c8;
+  --color-info-ink: #3f5694;
+  --color-relation-active-bg: #ccd8f4;
+  --color-relation-active-border: #9fb8ec;
+  --color-invite-border: #e6d08a;
+  --color-invite-label: #a88526;
+
   /* Avatars (kids + parents) */
   --color-avatar-sky: #a9d9e8;
   --color-avatar-sky-ink: #1f7a93;
