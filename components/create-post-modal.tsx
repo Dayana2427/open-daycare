@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useRef, useState, type MouseEvent } from "react";
+import { useId, useRef, useState, type FormEvent, type MouseEvent } from "react";
 import { currentUser } from "@/lib/data/feed";
 
 type CreatePostTrigger = "sidebar" | "composer";
@@ -60,7 +60,8 @@ export function CreatePostModal({ trigger }: CreatePostModalProps) {
   const triggerRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const titleId = useId();
-  const [, setFormState] = useState<CreatePostFormState>(initialFormState);
+  const descriptionId = useId();
+  const [formState, setFormState] = useState<CreatePostFormState>(initialFormState);
 
   function openModal() {
     setFormState(initialFormState);
@@ -74,6 +75,11 @@ export function CreatePostModal({ trigger }: CreatePostModalProps) {
   function handleClose() {
     setFormState(initialFormState);
     triggerRef.current?.focus();
+  }
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    closeModal();
   }
 
   function handleDialogClick(event: MouseEvent<HTMLDialogElement>) {
@@ -121,21 +127,52 @@ export function CreatePostModal({ trigger }: CreatePostModalProps) {
         onClick={handleDialogClick}
         onClose={handleClose}
       >
-        <div className="flex items-center justify-between border-b border-border px-[26px] py-5">
-          <button
-            type="button"
-            className="text-[15px] font-bold text-muted-dark"
-            onClick={closeModal}
-          >
-            Cancelar
-          </button>
-          <span id={titleId} className="font-display text-[18px] font-semibold text-ink">
-            Nueva publicación
-          </span>
-          <button type="button" className="text-[15px] font-extrabold text-coral-strong">
-            Publicar
-          </button>
-        </div>
+        <form onSubmit={handleSubmit}>
+          <div className="flex items-center justify-between border-b border-border px-[26px] py-5">
+            <button
+              type="button"
+              className="text-[15px] font-bold text-muted-dark"
+              onClick={closeModal}
+            >
+              Cancelar
+            </button>
+            <span
+              id={titleId}
+              className="font-display text-[18px] font-semibold text-ink"
+            >
+              Nueva publicación
+            </span>
+            <button
+              type="submit"
+              className="text-[15px] font-extrabold text-coral-strong"
+            >
+              Publicar
+            </button>
+          </div>
+
+          <div className="px-[26px] py-6">
+            <label
+              htmlFor={descriptionId}
+              className="mb-[10px] block text-[12px] font-extrabold tracking-[.7px] text-muted-dark"
+            >
+              DESCRIPCIÓN
+            </label>
+            <textarea
+              id={descriptionId}
+              name="description"
+              required
+              placeholder="Contá cómo le fue hoy…"
+              value={formState.description}
+              onChange={(event) =>
+                setFormState((current) => ({
+                  ...current,
+                  description: event.target.value,
+                }))
+              }
+              className="mb-[22px] min-h-[120px] w-full resize-y rounded-[14px] border-[1.5px] border-input-border bg-white px-4 py-[14px] text-[15px] leading-[1.5] text-ink outline-none placeholder:text-placeholder"
+            />
+          </div>
+        </form>
       </dialog>
     </>
   );
