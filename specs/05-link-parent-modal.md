@@ -1,6 +1,6 @@
 # SPEC 05 — Modal Vincular padre (solo UI)
 
-> **Status:** Aprovado
+> **Status:** Implementado
 > **Depends on:** SPEC 02
 > **Date:** 2026-11-05
 > **Objective:** Integrar en todos los perfiles `/kids/[id]` un modal interactivo para vincular otro padre, fiel a `vincular-padre.dc.html`, con envío simulado y sin persistencia.
@@ -82,25 +82,25 @@ interface LinkParentModalProps {
 
 ## Acceptance criteria
 
-- [ ] "Vincular otro padre" es un botón con la misma apariencia anterior y abre el modal en cualquier ruta `/kids/[id]` válida.
-- [ ] Abrir o cerrar el modal no cambia la URL ni navega a otra pantalla.
-- [ ] El modal usa un `<dialog>` nativo centrado sobre un backdrop `rgba(63,54,46,.45)` sin blur; el resto del perfil queda inerte.
-- [ ] La card tiene `max-width` 480px, fondo `#FBF4EC`, borde `#ECE0D0`, radio 24px y la sombra de la referencia.
-- [ ] El header muestra "Vincular padre", `a {nombre completo del perfil}` y una X con `aria-label="Cerrar"`.
-- [ ] El aviso azul reproduce el texto de la referencia y usa el primer nombre del niño actual en "Solo verá el feed de {primer nombre}.".
-- [ ] En cada apertura, NOMBRE DEL PADRE/MADRE y EMAIL están vacíos, "Mamá" está seleccionado y el código visible es `7K4P9` con "Vence en 7 días".
-- [ ] Los placeholders son exactamente "Ej. Diego Fernández" y "correo@ejemplo.com"; el email usa `type="email"` y ambos campos son obligatorios.
-- [ ] "Mamá", "Papá" y "Tutor/a" son seleccionables, nunca queda más de una opción activa y la activa reproduce los estilos de la referencia.
-- [ ] Un submit con nombre vacío o email inválido mantiene el modal abierto y muestra la validación nativa del navegador.
-- [ ] Un submit válido cierra el modal sin agregar padres, cambiar datos, mostrar confirmación ni ejecutar requests.
-- [ ] La X, Escape y el clic directo en el backdrop cierran el modal; cualquier cierre descarta los valores y restablece "Mamá" para la próxima apertura.
-- [ ] Al abrir, el foco queda dentro del diálogo; al cerrar, vuelve al botón "Vincular otro padre".
-- [ ] `app/kids/[id]/page.tsx` sigue siendo server component y la interactividad queda encapsulada en `components/link-parent-modal.tsx`.
-- [ ] No se modifican `lib/data/kids.ts` ni `lib/data/activation.ts`, no se agregan dependencias y no existen handlers de backend.
-- [ ] Los colores nuevos provienen de los siete tokens declarados y los colores existentes se reusan mediante `@theme`; identificadores en inglés y textos visibles en español.
-- [ ] `npm run lint`, `npx tsc --noEmit` y `npm run build` terminan sin errores.
-- [ ] La revisión visual desktop (≥1024px) de `/kids/mateo` con el modal abierto contra `referencias/pantallas/vincular-padre.dc.html` no muestra diferencias apreciables en la card, salvo el backdrop propio del overlay.
-- [ ] Las capturas de Playwright quedan en `.playwright-mcp/` y el perfil sin modal abierto no presenta regresiones visuales.
+- [x] "Vincular otro padre" es un botón con la misma apariencia anterior y abre el modal en cualquier ruta `/kids/[id]` válida.
+- [x] Abrir o cerrar el modal no cambia la URL ni navega a otra pantalla.
+- [x] El modal usa un `<dialog>` nativo centrado sobre un backdrop `rgba(63,54,46,.45)` sin blur; el resto del perfil queda inerte.
+- [x] La card tiene `max-width` 480px, fondo `#FBF4EC`, borde `#ECE0D0`, radio 24px y la sombra de la referencia.
+- [x] El header muestra "Vincular padre", `a {nombre completo del perfil}` y una X con `aria-label="Cerrar"`.
+- [x] El aviso azul reproduce el texto de la referencia y usa el primer nombre del niño actual en "Solo verá el feed de {primer nombre}.".
+- [x] En cada apertura, NOMBRE DEL PADRE/MADRE y EMAIL están vacíos, "Mamá" está seleccionado y el código visible es `7K4P9` con "Vence en 7 días".
+- [x] Los placeholders son exactamente "Ej. Diego Fernández" y "correo@ejemplo.com"; el email usa `type="email"` y ambos campos son obligatorios.
+- [x] "Mamá", "Papá" y "Tutor/a" son seleccionables, nunca queda más de una opción activa y la activa reproduce los estilos de la referencia.
+- [x] Un submit con nombre vacío o email inválido mantiene el modal abierto y muestra la validación nativa del navegador.
+- [x] Un submit válido cierra el modal sin agregar padres, cambiar datos, mostrar confirmación ni ejecutar requests.
+- [x] La X, Escape y el clic directo en el backdrop cierran el modal; cualquier cierre descarta los valores y restablece "Mamá" para la próxima apertura.
+- [x] Al abrir, el foco queda dentro del diálogo; al cerrar, vuelve al botón "Vincular otro padre".
+- [x] `app/kids/[id]/page.tsx` sigue siendo server component y la interactividad queda encapsulada en `components/link-parent-modal.tsx`.
+- [x] No se modifican `lib/data/kids.ts` ni `lib/data/activation.ts`, no se agregan dependencias y no existen handlers de backend.
+- [x] Los colores nuevos provienen de los siete tokens declarados y los colores existentes se reusan mediante `@theme`; identificadores en inglés y textos visibles en español.
+- [x] `npm run lint`, `npx tsc --noEmit` y `npm run build` terminan sin errores.
+- [x] La revisión visual desktop (≥1024px) de `/kids/mateo` con el modal abierto contra `referencias/pantallas/vincular-padre.dc.html` no muestra diferencias apreciables en la card, salvo el backdrop propio del overlay.
+- [x] Las capturas de Playwright quedan en `.playwright-mcp/` y el perfil sin modal abierto no presenta regresiones visuales.
 
 ## Decisions
 
