@@ -2,6 +2,7 @@
 
 import { useId, useRef, useState, type FormEvent, type MouseEvent } from "react";
 import { currentUser } from "@/lib/data/feed";
+import { kids, type AvatarColor } from "@/lib/data/kids";
 
 type CreatePostTrigger = "sidebar" | "composer";
 
@@ -19,6 +20,14 @@ const initialFormState: CreatePostFormState = {
   selectedKidIds: [],
   allRoom: false,
   description: "",
+};
+
+const avatarStyles: Record<AvatarColor, string> = {
+  sky: "bg-avatar-sky text-avatar-sky-ink",
+  pink: "bg-avatar-pink text-avatar-pink-ink",
+  green: "bg-avatar-green text-avatar-green-ink",
+  yellow: "bg-avatar-yellow text-avatar-yellow-ink",
+  purple: "bg-avatar-purple text-avatar-purple-ink",
 };
 
 function PlusIcon() {
@@ -80,6 +89,24 @@ export function CreatePostModal({ trigger }: CreatePostModalProps) {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     closeModal();
+  }
+
+  function toggleKid(kidId: string) {
+    setFormState((current) => ({
+      ...current,
+      selectedKidIds: current.selectedKidIds.includes(kidId)
+        ? current.selectedKidIds.filter((id) => id !== kidId)
+        : [...current.selectedKidIds, kidId],
+      allRoom: false,
+    }));
+  }
+
+  function toggleAllRoom() {
+    setFormState((current) => ({
+      ...current,
+      selectedKidIds: [],
+      allRoom: !current.allRoom,
+    }));
   }
 
   function handleDialogClick(event: MouseEvent<HTMLDialogElement>) {
@@ -151,6 +178,49 @@ export function CreatePostModal({ trigger }: CreatePostModalProps) {
           </div>
 
           <div className="px-[26px] py-6">
+            <div className="mb-[10px] text-[12px] font-extrabold tracking-[.7px] text-muted-dark">
+              PARA
+            </div>
+            <div className="mb-[22px] flex flex-wrap gap-[9px]">
+              {kids.map((kid) => {
+                const firstName = kid.name.trim().split(/\s+/)[0];
+                const isSelected = formState.selectedKidIds.includes(kid.id);
+
+                return (
+                  <button
+                    key={kid.id}
+                    type="button"
+                    aria-pressed={isSelected}
+                    onClick={() => toggleKid(kid.id)}
+                    className={`flex items-center gap-2 rounded-full border-[1.5px] py-[6px] pr-[14px] pl-[6px] text-[14px] font-bold ${
+                      isSelected
+                        ? "border-ink bg-ink text-white"
+                        : "border-border bg-surface text-nav"
+                    }`}
+                  >
+                    <span
+                      className={`flex h-[26px] w-[26px] items-center justify-center rounded-full font-display text-[13px] font-semibold ${avatarStyles[kid.color]}`}
+                    >
+                      {firstName.charAt(0)}
+                    </span>
+                    {firstName}
+                  </button>
+                );
+              })}
+              <button
+                type="button"
+                aria-pressed={formState.allRoom}
+                onClick={toggleAllRoom}
+                className={`rounded-full border-[1.5px] px-4 py-[6px] text-[14px] font-bold ${
+                  formState.allRoom
+                    ? "border-ink bg-ink text-white"
+                    : "border-border bg-surface text-nav"
+                }`}
+              >
+                Toda la sala
+              </button>
+            </div>
+
             <label
               htmlFor={descriptionId}
               className="mb-[10px] block text-[12px] font-extrabold tracking-[.7px] text-muted-dark"
