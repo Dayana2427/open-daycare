@@ -4,6 +4,7 @@ import type { CurrentUser } from "@/lib/data/feed";
 interface SidebarProps {
   user: CurrentUser;
   activeItem: SidebarItemId;
+  createPostTrigger?: ReactNode;
 }
 
 function LogoIcon() {
@@ -149,7 +150,7 @@ const navItemStyles = "flex items-center gap-3 rounded-xl px-3 py-[11px] text-[1
 const navItemActiveStyles = "bg-coral-wash font-extrabold text-coral-strong";
 const navItemIdleStyles = "bg-transparent font-semibold text-nav";
 
-export function Sidebar({ user, activeItem }: SidebarProps) {
+export function Sidebar({ user, activeItem, createPostTrigger }: SidebarProps) {
   return (
     <aside className="sticky top-0 flex h-screen w-[248px] flex-none flex-col border-r border-border bg-surface px-4 py-6">
       <a href="#" className="flex items-center gap-[11px] px-2 pt-1 pb-[22px]">
@@ -164,13 +165,15 @@ export function Sidebar({ user, activeItem }: SidebarProps) {
         </span>
       </a>
 
-      <a
-        href="#"
-        className="mb-[18px] flex w-full items-center justify-center gap-2 rounded-[14px] bg-[linear-gradient(180deg,var(--color-coral-light),var(--color-coral))] p-3 text-[14.5px] font-extrabold text-white shadow-[0_8px_18px_-8px_rgba(238,129,100,.75)]"
-      >
-        <PlusIcon />
-        Nueva publicación
-      </a>
+      {createPostTrigger ?? (
+        <a
+          href="#"
+          className="mb-[18px] flex w-full items-center justify-center gap-2 rounded-[14px] bg-[linear-gradient(180deg,var(--color-coral-light),var(--color-coral))] p-3 text-[14.5px] font-extrabold text-white shadow-[0_8px_18px_-8px_rgba(238,129,100,.75)]"
+        >
+          <PlusIcon />
+          Nueva publicación
+        </a>
+      )}
 
       <nav className="flex flex-1 flex-col gap-1">
         {navItems.map((item) => {

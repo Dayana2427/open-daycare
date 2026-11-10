@@ -78,6 +78,10 @@
   --color-alert-strong: #c5413a;
   --color-alert-ink: #b25249;
 
+  /* Create post modal */
+  --color-post-nap-bg: #e7dcf6;
+  --color-post-activity: #2e89a6;
+
   /* Photo placeholder */
   --color-photo-bg: #f4ece1;
   --color-photo-border: #dbcdba;
