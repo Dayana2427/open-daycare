@@ -1,6 +1,6 @@
 # SPEC 06 — Modal Nueva publicación (solo UI)
 
-> **Status:** Aprobado
+> **Status:** Implementado
 > **Depends on:** SPEC 01, SPEC 02
 > **Date:** 2026-11-06
 > **Objective:** Abrir desde los dos disparadores del feed `/` un modal interactivo para redactar una nueva publicación, fiel a `crear-publicacion.dc.html`, con publicación simulada y sin persistencia.
@@ -84,32 +84,32 @@ const initialFormState: CreatePostFormState = {
 
 ## Acceptance criteria
 
-- [ ] “Nueva publicación” del sidebar y “Compartí un momento…” abren el modal en `/` sin cambiar la URL ni navegar.
-- [ ] Los dos disparadores conservan la apariencia que tenían antes de incorporar el modal y usan `<button type="button">`.
-- [ ] El botón “Nueva publicación” de `/kids` y `/kids/[id]` no abre el modal y conserva su comportamiento actual.
-- [ ] El modal usa un `<dialog>` nativo centrado sobre un backdrop `rgba(63,54,46,.45)` sin blur; el resto del feed queda inerte.
-- [ ] La card tiene `max-width` 580px, fondo `#FBF4EC`, borde `#ECE0D0`, radio 24px y la sombra de la referencia.
-- [ ] El header muestra “Cancelar” a la izquierda, “Nueva publicación” al centro y “Publicar” a la derecha con los estilos de la referencia.
-- [ ] En cada apertura no hay destinatarios seleccionados y la descripción está vacía con placeholder “Contá cómo le fue hoy…”.
-- [ ] PARA muestra los 8 niños de `lib/data/kids.ts` en orden, usando primer nombre, inicial y colores de avatar del mock, seguidos por “Toda la sala”.
-- [ ] Cada niño puede seleccionarse y deseleccionarse sin alterar la selección de los demás niños.
-- [ ] Activar “Toda la sala” deselecciona todos los niños; activar un niño desactiva “Toda la sala”; activar nuevamente “Toda la sala” la deselecciona.
-- [ ] TIPO muestra exactamente “Comida”, “Siesta”, “Actividad”, “Logro”, “Ánimo”, “Foto” y “Anuncio”.
-- [ ] “Comida” y “Actividad” conservan los fondos oscuros con texto blanco de la referencia y los otros tipos conservan sus combinaciones pastel.
-- [ ] Los controles de TIPO son solo visuales: hacer clic no cambia sus estilos, no agrega estado y no modifica otros campos.
-- [ ] FOTOS reproduce el placeholder y “Agregar” de la referencia; hacer clic no abre un selector de archivos ni cambia el contenido.
-- [ ] El textarea es obligatorio mediante `required`; un submit vacío mantiene el modal abierto y muestra la validación nativa del navegador.
-- [ ] Un submit con descripción válida cierra el modal sin agregar publicaciones, modificar `posts`, mostrar confirmación ni ejecutar requests.
-- [ ] “Cancelar”, Escape y el clic directo en el backdrop cierran el modal incluso si el formulario es inválido; un clic dentro de la card no lo cierra.
-- [ ] Cualquier cierre descarta descripción y destinatarios, y la próxima apertura vuelve al estado inicial.
-- [ ] Al abrir, el foco queda dentro del diálogo; al cerrar, vuelve al mismo disparador que lo abrió.
-- [ ] Las dos instancias usan IDs accesibles únicos y cada diálogo tiene su nombre accesible asociado al título “Nueva publicación”.
-- [ ] `app/page.tsx` y `components/sidebar.tsx` siguen siendo server components y la interactividad queda encapsulada en `components/create-post-modal.tsx`.
-- [ ] No se modifican `lib/data/feed.ts` ni `lib/data/kids.ts`, no se agregan dependencias y no existen handlers de backend.
-- [ ] Los colores nuevos provienen de los dos tokens declarados y los colores existentes se reusan mediante `@theme`; identificadores en inglés y textos visibles en español.
-- [ ] `npm run lint`, `npx tsc --noEmit` y `npm run build` terminan sin errores.
-- [ ] La revisión visual desktop (≥1024px) de `/` con el modal abierto contra `referencias/pantallas/crear-publicacion.dc.html` no muestra diferencias apreciables en la card, salvo los ocho niños, el formulario inicialmente vacío y el backdrop propio del overlay.
-- [ ] Las capturas de Playwright quedan en `.playwright-mcp/` y el feed sin modal abierto no presenta regresiones visuales.
+- [x] “Nueva publicación” del sidebar y “Compartí un momento…” abren el modal en `/` sin cambiar la URL ni navegar.
+- [x] Los dos disparadores conservan la apariencia que tenían antes de incorporar el modal y usan `<button type="button">`.
+- [x] El botón “Nueva publicación” de `/kids` y `/kids/[id]` no abre el modal y conserva su comportamiento actual.
+- [x] El modal usa un `<dialog>` nativo centrado sobre un backdrop `rgba(63,54,46,.45)` sin blur; el resto del feed queda inerte.
+- [x] La card tiene `max-width` 580px, fondo `#FBF4EC`, borde `#ECE0D0`, radio 24px y la sombra de la referencia.
+- [x] El header muestra “Cancelar” a la izquierda, “Nueva publicación” al centro y “Publicar” a la derecha con los estilos de la referencia.
+- [x] En cada apertura no hay destinatarios seleccionados y la descripción está vacía con placeholder “Contá cómo le fue hoy…”.
+- [x] PARA muestra los 8 niños de `lib/data/kids.ts` en orden, usando primer nombre, inicial y colores de avatar del mock, seguidos por “Toda la sala”.
+- [x] Cada niño puede seleccionarse y deseleccionarse sin alterar la selección de los demás niños.
+- [x] Activar “Toda la sala” deselecciona todos los niños; activar un niño desactiva “Toda la sala”; activar nuevamente “Toda la sala” la deselecciona.
+- [x] TIPO muestra exactamente “Comida”, “Siesta”, “Actividad”, “Logro”, “Ánimo”, “Foto” y “Anuncio”.
+- [x] “Comida” y “Actividad” conservan los fondos oscuros con texto blanco de la referencia y los otros tipos conservan sus combinaciones pastel.
+- [x] Los controles de TIPO son solo visuales: hacer clic no cambia sus estilos, no agrega estado y no modifica otros campos.
+- [x] FOTOS reproduce el placeholder y “Agregar” de la referencia; hacer clic no abre un selector de archivos ni cambia el contenido.
+- [x] El textarea es obligatorio mediante `required`; un submit vacío mantiene el modal abierto y muestra la validación nativa del navegador.
+- [x] Un submit con descripción válida cierra el modal sin agregar publicaciones, modificar `posts`, mostrar confirmación ni ejecutar requests.
+- [x] “Cancelar”, Escape y el clic directo en el backdrop cierran el modal incluso si el formulario es inválido; un clic dentro de la card no lo cierra.
+- [x] Cualquier cierre descarta descripción y destinatarios, y la próxima apertura vuelve al estado inicial.
+- [x] Al abrir, el foco queda dentro del diálogo; al cerrar, vuelve al mismo disparador que lo abrió.
+- [x] Las dos instancias usan IDs accesibles únicos y cada diálogo tiene su nombre accesible asociado al título “Nueva publicación”.
+- [x] `app/page.tsx` y `components/sidebar.tsx` siguen siendo server components y la interactividad queda encapsulada en `components/create-post-modal.tsx`.
+- [x] No se modifican `lib/data/feed.ts` ni `lib/data/kids.ts`, no se agregan dependencias y no existen handlers de backend.
+- [x] Los colores nuevos provienen de los dos tokens declarados y los colores existentes se reusan mediante `@theme`; identificadores en inglés y textos visibles en español.
+- [x] `npm run lint`, `npx tsc --noEmit` y `npm run build` terminan sin errores.
+- [x] La revisión visual desktop (≥1024px) de `/` con el modal abierto contra `referencias/pantallas/crear-publicacion.dc.html` no muestra diferencias apreciables en la card, salvo los ocho niños, el formulario inicialmente vacío y el backdrop propio del overlay.
+- [x] Las capturas de Playwright quedan en `.playwright-mcp/` y el feed sin modal abierto no presenta regresiones visuales.
 
 ## Decisions
 

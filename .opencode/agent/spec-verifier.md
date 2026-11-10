@@ -1,7 +1,7 @@
 ---
 description: Verifica, corrige y marca los checks de "Acceptance criteria" de un spec en specs/. Usa Context7 para recomendaciones de Next.js y Playwright MCP con visión para comparar pantallas.
 mode: all
-model: opencode/qwen3.6-plus
+model: opencode-go/kimi-k3.1-pro
 permission:
   bash:
     "npm run *": "allow"
