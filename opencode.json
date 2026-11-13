@@ -28,6 +28,11 @@
         "@playwright/mcp@latest"
       ],
       "enabled": true
+    },
+    "supabase": {
+      "type": "remote",
+      "url": "https://mcp.supabase.com/mcp?project_ref=fsrdygrwfhuhxefrvpqn",
+      "enabled": true
     }
   }
 }
