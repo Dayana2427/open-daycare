@@ -1,17 +1,31 @@
 {
-  "version": 1,
+  "version": 2,
   "skills": {
     "spec": {
       "source": "klerith/fernando-skills",
       "sourceType": "github",
       "skillPath": "skills/engineering/spec/SKILL.md",
-      "computedHash": "8a0420eb0458ff288368bad5ffadf1e7029be9fdcbcf6abed1b0431061c09ba6"
+      "computedHash": "4691df369ffb9a4f0e689683c695296b5857e826f61028e36449ef586cffa27a"
     },
     "spec-impl": {
       "source": "klerith/fernando-skills",
       "sourceType": "github",
       "skillPath": "skills/engineering/spec-impl/SKILL.md",
-      "computedHash": "ebe3edf3e5d39fc5ff4bc8e70fda783f841ed3c6ffcd436c3a520faa393db17d"
+      "computedHash": "71706ab400b424cff534f23afd287ab5a8c7150f6c1e928c4f125813677b18ea"
+    },
+    "supabase": {
+      "source": "supabase/agent-skills",
+      "commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "sourceType": "github",
+      "skillPath": "skills/supabase/SKILL.md",
+      "computedHash": "2fbff32fd63b7d31585cacf0ed43e5bf8d05dd20d6c0c751d256cb967a00eec1"
+    },
+    "supabase-postgres-best-practices": {
+      "source": "supabase/agent-skills",
+      "commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "sourceType": "github",
+      "skillPath": "skills/supabase-postgres-best-practices/SKILL.md",
+      "computedHash": "3eb972c2d7c818e544e35cc33ea8d7147d4d78ae08142ef40037b0fbac7a2505"
     }
   }
 }
