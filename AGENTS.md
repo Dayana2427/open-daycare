@@ -29,6 +29,13 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 - Playwright: screenshots and any Playwright output go in `.playwright-mcp/` (gitignored).
 - Context7: use it to fetch current framework docs instead of relying on training data.
+- Supabase: disponible mediante MCP para consultar documentación, inspeccionar el esquema, ejecutar SQL, gestionar migraciones y Edge Functions, revisar logs y consultar advisors. Antes de modificar el esquema, inspeccionar las tablas existentes; al depurar, empezar por los logs y los advisors de seguridad, rendimiento y salud. Preferir desarrollo y pruebas locales antes de aplicar cambios al proyecto remoto. Nunca leer archivos del servidor ni ejecutar comandos del sistema operativo mediante SQL.
+
+## Supabase - Skills
+
+- `/supabase`: cargar esta skill para cualquier tarea relacionada con Supabase, incluidas las integraciones con Next.js (`supabase-js` y `@supabase/ssr`), Auth, RLS, Storage, Realtime, Edge Functions, migraciones y diagnóstico. Consultar el changelog y la documentación vigente antes de implementar, y verificar cada cambio con una prueba o consulta.
+- `/supabase-postgres-best-practices`: cargar esta skill antes de escribir SQL o modificar cualquier elemento de Postgres (tablas, columnas, tipos, índices, políticas RLS, triggers, funciones, migraciones, colas y tareas programadas), así como al diagnosticar problemas de rendimiento, bloqueos o visibilidad de datos.
+- No exponer `service_role` ni claves secretas en clientes públicos; usar claves publicables en el frontend. Habilitar RLS en las tablas de esquemas expuestos y ejecutar los advisors después de cambios DDL.
 
 ## Agents
 
