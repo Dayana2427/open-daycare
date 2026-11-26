@@ -35,6 +35,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 - `/supabase`: cargar esta skill para cualquier tarea relacionada con Supabase, incluidas las integraciones con Next.js (`supabase-js` y `@supabase/ssr`), Auth, RLS, Storage, Realtime, Edge Functions, migraciones y diagnóstico. Consultar el changelog y la documentación vigente antes de implementar, y verificar cada cambio con una prueba o consulta.
 - `/supabase-postgres-best-practices`: cargar esta skill antes de escribir SQL o modificar cualquier elemento de Postgres (tablas, columnas, tipos, índices, políticas RLS, triggers, funciones, migraciones, colas y tareas programadas), así como al diagnosticar problemas de rendimiento, bloqueos o visibilidad de datos.
+- **Migraciones obligatorias**: siempre que se manipule la base de datos, cualquier cambio de esquema o de datos debe realizarse mediante una migración. No aplicar modificaciones directas o manuales fuera de una migración; para operaciones DDL, usar `apply_migration`.
 - No exponer `service_role` ni claves secretas en clientes públicos; usar claves publicables en el frontend. Habilitar RLS en las tablas de esquemas expuestos y ejecutar los advisors después de cambios DDL.
 
 ## Agents
